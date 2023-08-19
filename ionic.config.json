@@ -1,0 +1,7 @@
+{
+  "name": "TnTetraWeb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
