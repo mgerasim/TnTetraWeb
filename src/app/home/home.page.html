@@ -1,5 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="settings()">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
     <ion-title>
       Контроль Тетра
     </ion-title>
@@ -15,7 +23,7 @@
   <ng-container *ngIf="isInitMode">
 
     <ion-button size="large" expand="block" (click)="scan()">
-      <ion-icon slot="icon-only" name="scan"></ion-icon>
+      <ion-icon slot="start" name="scan"></ion-icon>
       Сканировать
     </ion-button>
 
@@ -31,8 +39,9 @@
   <!-- Sending Mode -->
   <ng-container *ngIf="isSendingMode">
     <ion-button size="large" expand="block" (click)="send()">
-      <ion-icon slot="icon-only" name="email"></ion-icon>
+
       Отправить
+      <ion-icon slot="end" name="send"></ion-icon>
     </ion-button>
   </ng-container>
 </ion-content>

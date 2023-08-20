@@ -52,8 +52,6 @@ export class HomePage {
 
     this.mode = Mode.scanning;
 
-    await delay(10000);
-
     try {
       const ndef = new NDEFReader();
       await ndef.scan();
@@ -111,4 +109,8 @@ export class HomePage {
     this.mode = Mode.init;
   }
 
+  settings() {
+    console.log('setting');
+    window.location.href = '/settings';
+  }
 }
