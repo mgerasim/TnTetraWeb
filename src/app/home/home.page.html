@@ -1,20 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Контроль Тетра
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+
+
+  <!-- Init Mode -->
+  <ng-container *ngIf="isInitMode">
+
+    <ion-button size="large" expand="block" (click)="scan()">
+      <ion-icon slot="icon-only" name="scan"></ion-icon>
+      Сканировать
+    </ion-button>
+
+  </ng-container>
+
+  <!-- Scaning Mode -->
+  <ng-container *ngIf="isScanningMode">
+    <div id="container">
+      <img src="assets/2359-scanning-nfc-tag.svg">
+    </div>
+  </ng-container>
+
+  <!-- Sending Mode -->
+  <ng-container *ngIf="isSendingMode">
+    <ion-button size="large" expand="block" (click)="send()">
+      <ion-icon slot="icon-only" name="email"></ion-icon>
+      Отправить
+    </ion-button>
+  </ng-container>
 </ion-content>
+
+
+
+<ion-toast
+  [isOpen]="isToastOpen"
+  [message]="errorMessage"
+  [duration]="5000"
+  (didDismiss)="setOpen(false)"
+></ion-toast>
+<ion-toast
+  [isOpen]="isSuccess"
+  [message]="successMessage"
+  [duration]="5000"
+  (didDismiss)="setSuccess(false)"
+></ion-toast>

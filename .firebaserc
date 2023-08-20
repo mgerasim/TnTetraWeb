@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tetra-nfc": {
+      "hosting": {
+        "app": [
+          "tetra-nfc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tetra-nfc"
+  }
+}
